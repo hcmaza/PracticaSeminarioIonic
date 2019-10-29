@@ -8,7 +8,118 @@
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+   
+<!-- 
+<ion-list>
+  <ion-item>
+    <ion-label>Pokémon Yellow</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Mega Man X</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>The Legend of Zelda</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Pac-Man</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Super Mario World</ion-label>
+  </ion-item>
+</ion-list> -->
+
+<!--
+<ion-list>
+  <ion-item *ngFor="let item of personas" >
+    <ion-label >{{item.apellido}}</ion-label>
+  </ion-item>
+  
+</ion-list> -->
+
+
+
+<ion-list>
+  
+  <!-- Sliding item with icon start options on end side -->
+  <ion-item-sliding *ngFor="let item of personas" >
+    <ion-item>
+      <ion-label>
+        {{item.apellido}}
+      </ion-label>
+    </ion-item>
+    <ion-item-options side="end">
+     <!-- <ion-item-option color="primary">
+        <ion-icon slot="start" name="more"></ion-icon>
+        Agregar
+      </ion-item-option> -->
+      <ion-item-option color="secondary">
+        <ion-icon slot="start" name="create"></ion-icon>
+        Modificar
+      </ion-item-option>
+
+    </ion-item-options>
+    <ion-item-options side="start">
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+        Borrar
+      </ion-item-option>
+      
+    </ion-item-options>
+  </ion-item-sliding>
+  
+
+
+</ion-list>
+<!--
+<ion-list>
+  <ion-item *ngFor="let persona of muchaspersonas" >
+    <ion-label >{{persona.id}} - {{persona.apellido}}, {{persona.nombre}}</ion-label>
+  </ion-item>
+  
+</ion-list>
+
+-->
+
+
+
+<ion-list>
+  
+  <!-- Sliding item with icon start options on end side -->
+  <ion-item-sliding *ngFor="let persona of muchaspersonas; index as i" >
+    <ion-item>
+      <ion-label>
+        {{persona.id}} - {{persona.apellido}}, {{persona.nombre}}
+      </ion-label>
+    </ion-item>
+    <ion-item-options side="end">
+     <!-- <ion-item-option color="primary">
+        <ion-icon slot="start" name="more"></ion-icon>
+        Agregar
+      </ion-item-option> -->
+      <ion-item-option (click)="navegar('/detallepersona',persona.id)"  color="secondary">
+        <ion-icon slot="start" name="create"></ion-icon>
+        Modificar
+      </ion-item-option>
+
+    </ion-item-options>
+    <ion-item-options side="start">
+      <ion-item-option (click)="deletePersona(persona.id)" color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+        Borrar
+      </ion-item-option>
+      
+    </ion-item-options>
+  </ion-item-sliding>
+  
+
+
+</ion-list>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  
+  <!--  <ion-fab-button (click)="agregar()" [routerLink]="['/detallepersona']" color="dark">Dark</ion-fab-button>-->
+  <ion-fab-button (click)="navegar('/detallepersona',0)" color="dark">Agregar</ion-fab-button>
+  </ion-fab>
+
   </div>
 </ion-content>

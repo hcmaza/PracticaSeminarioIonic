@@ -1,0 +1,2 @@
+# PracticaSeminarioIonic
+Ionic - Angular
